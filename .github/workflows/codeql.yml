@@ -20,7 +20,7 @@ jobs:
       run: git submodule update --init --recursive
     - name: Restore and save cache
       id: restore-cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: |
           openssl-1.1.1q
