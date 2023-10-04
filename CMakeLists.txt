@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 3.9)
 project(AirClassroomDownload)
 
 set(CMAKE_CXX_COMPILER "g++")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -Wall -std=c++14")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -Wall")
+set(CXX_STANDARD 14)
 
 add_executable(main
     Lib/Exception.cpp

@@ -1,5 +1,23 @@
-#include "Curl.hpp"
-string LoginURL = "https://cas2.edu.sh.cn/CAS/login?service=https%3A%2F%2Fsmilelogin.shec.edu.cn%2Fsmile-login%2Fauth%2Fcas%2Flogin%3Ftarget%3Dhttps%3A%2F%2Fsmile.shec.edu.cn%2F%3Fpath%3DairClassroomPage";
+/**********************************************************************
+AirClassroomDownload: Download air classroom in Shanghai.
+Copyright (C) 2023  langningchen
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+**********************************************************************/
+
+#include <Curl.hpp>
+const string LoginURL = "https://cas2.edu.sh.cn/CAS/login?service=https%3A%2F%2Fsmilelogin.shec.edu.cn%2Fsmile-login%2Fauth%2Fcas%2Flogin%3Ftarget%3Dhttps%3A%2F%2Fsmile.shec.edu.cn%2F%3Fpath%3DairClassroomPage";
 int main(int argc, char **argv)
 {
     CLN_TRY
@@ -126,24 +144,16 @@ int main(int argc, char **argv)
     {
         cout << "\033cDownloading "
              << Size - VideoList.size() + 1 << "/" << Size << "  " << VideoList.front().first << endl;
-        if (1)
-        {
-            GetDataToFile(VideoList.front().second,
-                          "",
-                          VideoList.front().first,
-                          false,
-                          "",
-                          NULL,
-                          NULL,
-                          "application/json",
-                          "",
-                          true);
-        }
-        else
-        {
-            system(string("\"/mnt/c/Program Files (x86)/Internet Download Manager/idman.exe\" /d \"" + VideoList.front().second + "\" /p \"D:\" /f \"" + VideoList.front().first + "\"").c_str());
-            sleep(13);
-        }
+        GetDataToFile(VideoList.front().second,
+                      "",
+                      VideoList.front().first,
+                      false,
+                      "",
+                      NULL,
+                      NULL,
+                      "application/json",
+                      "",
+                      true);
         VideoList.pop();
     }
     CLN_CATCH
